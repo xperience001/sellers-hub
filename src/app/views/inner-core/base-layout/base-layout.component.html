@@ -1,0 +1,69 @@
+<div class="base-layout-container" [class.base-layout-is-mobile]="mobileQuery.matches">
+
+  <!-- <mat-sidenav-container class="base-layout-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0"> -->
+    <mat-sidenav-container class="base-layout-sidenav-container">
+    <!-- Side Bar -->
+    <!-- <mat-sidenav  class="base-layout-sidenav" #snav opened [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56"> -->
+      <mat-sidenav  class="base-layout-sidenav" #snav opened [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches">
+
+      <div class="logo-mercy">
+        <img src="assets/img/store-profile.png" alt="logo" srcset="">
+        <p class="profile-texts">
+          Saint Morris & <br>
+          Sons hoodlums Store
+        </p>
+        <button class="visit-store-btn">
+          Visit Store
+        </button>
+      </div>
+
+      <mat-nav-list style="margin-top: 2.3rem;">
+        <mat-list-item style="width: 99%;" routerLinkActive="active-route" *ngFor="let nav of menu">
+          <a matLine [routerLink]="nav.path" class="nav-items">
+            <button mat-icon-button>
+              <img class="nav-items-icon" src="assets/icon/{{nav.icon}}.svg" alt="" srcset="">
+              <!-- <mat-icon>{{nav.icon}}</mat-icon> -->
+            </button>
+
+            {{ nav.name }}
+
+            <button mat-icon-button *ngIf="nav.icon === 'product'" style="float: right;">
+              <img class="nav-items-icon" src="assets/icon/add-product.svg" style="width: 20px;height:20px;" alt="" srcset="">
+            </button>
+          </a>
+        </mat-list-item>
+      </mat-nav-list>
+
+      <div class="logOut-btn" [routerLink]="['/']"  >
+        <p>Logout</p>
+      </div>
+
+      <!-- <div class="powered-by">
+        <p><b>Powered By</b></p>
+      </div>
+      <div class="logo-polaris">
+        <img src="assets/img/polaris-logo.png" alt="logo" srcset="">
+      </div> -->
+    </mat-sidenav>
+
+    <mat-sidenav-content class="side-nav-content">
+       <!-- Top Bar -->
+      <mat-toolbar class="base-layout-toolbar">
+        <!-- <button mat-icon-button (click)="snav.toggle()"><mat-icon>menu</mat-icon></button> -->
+        <h1 class="base-layout-app-name">Welcome to <span> SellersHub</span></h1>
+        <span class="fill-remaining-space"></span>
+        <button mat-icon-button>
+          <img src="assets/icon/notification-bell.svg" alt="" srcset="">
+        </button>
+      </mat-toolbar>
+
+      <!-- Component Content -->
+      <main class="main">
+        <button class="toggle-button" mat-mini-fab (click)="snav.toggle()"><mat-icon>menu</mat-icon></button>
+        <router-outlet></router-outlet>
+      </main>
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+</div>
+

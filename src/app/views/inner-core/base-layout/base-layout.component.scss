@@ -1,0 +1,183 @@
+.base-layout-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.base-layout-is-mobile .base-layout-toolbar {
+  position: fixed;
+  /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+  z-index: 2;
+}
+
+.base-layout-toolbar {
+  // position: fixed;
+  // z-index: 10000000;
+  width: 93%;
+  margin: auto;
+  margin-top: 1rem;
+  border-radius: 9px;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  background: #004d47 0% 0% no-repeat padding-box;
+}
+
+h1.base-layout-app-name {
+  margin-left: 8px;
+  font-size: larger;
+  font-weight: 500;
+  color: #FFFFFF;
+  opacity: 0.25;
+  letter-spacing: 2px;
+}
+
+h1.base-layout-app-name span {
+  font-weight: 800;
+}
+
+.base-layout-sidenav-container {
+  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+     causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+  flex: 1;
+}
+
+.base-layout-is-mobile .base-layout-sidenav-container {
+  /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+     `<body>` to be our scrolling element for mobile layouts. */
+  flex: 1 0 auto;
+}
+
+.base-layout-sidenav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 13rem;
+  // color: #ffffff;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  // background: linear-gradient(0deg, #44020e 10%, #D71339 86%);
+}
+
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
+.menu-icon {
+  padding-right: 1rem;
+  cursor: pointer;
+}
+
+.logo-mercy {
+  display: flex;
+  flex-direction: column;
+  // justify-items: center;
+  align-items: center;
+  margin-top: 2.5rem;
+
+  img {
+    object-fit: contain;
+  }
+}
+
+.profile-texts {
+  text-align: center;
+  font: normal normal normal 14px/20px Gotham;
+  letter-spacing: 0px;
+  color: #727272;
+  opacity: 1;
+}
+
+.visit-store-btn {
+  font: normal normal normal 14px/20px Gotham;
+  letter-spacing: 0px;
+  color: #ffffff;
+  background: #004d47 0% 0% no-repeat padding-box;
+  border-radius: 17px;
+  padding: 0.3rem 1.4rem;
+  border: none;
+}
+
+.active-route {
+  border-right: 2px solid #004d47;
+  background-color: #f0f0f0;
+}
+
+.nav-items {
+  // color: #fff;
+  font: normal normal bold 14px/16px Gotham;
+  font-weight: 800;
+  letter-spacing: 0px;
+  color: #151716;
+}
+
+.nav-items-icon {
+  object-fit: contain;
+}
+
+.logOut-btn {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  position: relative;
+  letter-spacing: 0px;
+  color: #727272;
+  opacity: 0.8;
+  top: 10vh;
+}
+
+.powered-by {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  position: absolute;
+  padding: 2rem 3rem 1rem 3rem;
+  bottom: 28px;
+
+  p {
+    color: #ccc;
+    filter: blur(0.3px);
+  }
+}
+
+.logo-polaris {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  position: absolute;
+  padding: 2rem 1.5rem 1rem 2rem;
+  bottom: 0;
+
+  img {
+    width: 115px;
+    height: 49px;
+  }
+}
+
+.toggle-button {
+  position: absolute;
+  top: 27px;
+  left: -20px;
+  color: #f0f0f0;
+  background-color: #fff;
+}
+
+.side-nav-content {
+  background: #f0f0f0 0% 0% no-repeat padding-box;
+}
+
+.main {
+  width: 95%;
+  margin: auto;
+  margin-top: 1.3rem;
+  margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 575px) {
+  .base-layout-is-mobile .base-layout-toolbar {
+     visibility: hidden;
+  }
+}
